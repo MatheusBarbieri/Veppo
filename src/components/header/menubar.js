@@ -21,7 +21,7 @@ export default class MenuBar extends Component {
   renderMenuItens() {
     return (
       menuItens.map((menuItem) => (
-        <a className='menuItem' href={menuItem.href}>
+        <a key={`item_${menuItem.title}`} className='menuItem' href={menuItem.href}>
           {menuItem.title}
         </a>
       ))
