@@ -1,0 +1,20 @@
+@import '../../../stylesheets/colors.scss';
+@import '../../../stylesheets/fonts.scss';
+
+.menubar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  positon: fixed;
+  margin-left: 4%;
+  background-color: $white;
+}
+
+.menuItem {
+  font-family: $opensans;
+  text-decoration: none;
+  margin-left: 2%;
+  font-size: 17px;
+  color: $dark-red;
+  fill: $dark-red;
+}
