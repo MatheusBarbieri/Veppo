@@ -31,7 +31,9 @@ export default class MenuBar extends Component {
   render() {
     return (
       <div className='menubar'>
-        {this.renderMenuItens()}
+        <div className='menubar-items'>
+          {this.renderMenuItens()}
+        </div>
       </div>
     )
   }

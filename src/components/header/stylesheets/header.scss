@@ -2,6 +2,8 @@
 @import '../../../stylesheets/fonts.scss';
 
 .header {
+  position: fixed;
+  width: 100%;
 }
 
 .facade {
@@ -9,7 +11,6 @@
   display: flex;
   align-items: center;
   top: 0;
-  positon: fixed;
   background-color: $dark-red;
 
   &__icon {
