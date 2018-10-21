@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './stylesheets/menubar.scss'
 
@@ -7,15 +8,15 @@ import facebook from './icons/facebook-square.svg'
 const menuItens = [
   {
     title: 'Página Inicial',
-    href: 'home'
+    href: '/'
   },
   {
-    title: 'Passagens',
-    href: 'passagens'
+    title: 'Horários de Onibus',
+    href: '/horarios'
   },
   {
     title: 'Serviços',
-    href: 'home#servicos'
+    href: '/#servicos'
   }
 ]
 
@@ -23,9 +24,9 @@ export default class MenuBar extends Component {
   renderMenuItens() {
     return (
       menuItens.map((menuItem) => (
-        <a key={`item_${menuItem.title}`} className='menu-item' href={menuItem.href}>
+        <Link key={`item_${menuItem.title}`} className='menu-item' to={menuItem.href}>
           {menuItem.title}
-        </a>
+        </Link>
       ))
     )
   }

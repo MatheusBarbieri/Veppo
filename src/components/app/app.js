@@ -1,17 +1,26 @@
 import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 
 import Header from '../header'
+import { HomeView, BusScheduleView } from '../views'
 // import Footer from '../footer'
 
 export default class App extends Component {
   render() {
     return (
-      <div className='app'>
-        <Header />
-        {/* Testing Pourposes */}
-        <div style={{ background: '#ffffff', height: '2000px' }} />
-        {/* <Footer /> */}
-      </div>
+      <Router>
+        <div className='app'>
+          <Header />
+
+          <Route path='/' exact component={HomeView} />
+          <Route path='/horarios' component={BusScheduleView} />
+
+          {/* <Footer /> */}
+        </div>
+      </Router>
     )
   }
 }
