@@ -13,9 +13,27 @@
   height: 100%;
   margin-left: 4%;
   background-color: $white;
+
+  &__right-area {
+    display: inline-flex;
+    justify-content:flex-end;
+    height: 100%;
+    width: 50%;
+    margin-right: 3%;
+    align-items: center;
+    margin-left: auto;
+  }
 }
 
-.menuItem {
+.facebook-icon {
+  height: 80%;
+  margin-left: 10px;
+  margin-top: 1px;
+  color: $dark-red;
+  fill: $dark-red;
+}
+
+.menu-item {
   font-family: $opensans;
   text-decoration: none;
   margin-left: 2%;

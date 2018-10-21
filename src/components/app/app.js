@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 
 import Header from '../header'
-
-import './stylesheets/app.scss'
+// import Footer from '../footer'
 
 export default class App extends Component {
   render() {
@@ -10,7 +9,8 @@ export default class App extends Component {
       <div className='app'>
         <Header />
         {/* Testing Pourposes */}
-        <div style={{ background: '#f7efc1', height: '2000px' }} />
+        <div style={{ background: '#ffffff', height: '2000px' }} />
+        {/* <Footer /> */}
       </div>
     )
   }
