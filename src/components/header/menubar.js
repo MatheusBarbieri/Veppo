@@ -11,7 +11,7 @@ const menuItens = [
     href: '/'
   },
   {
-    title: 'Horários de Onibus',
+    title: 'Horários de Ônibus',
     href: '/horarios'
   },
   {

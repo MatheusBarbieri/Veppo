@@ -15,7 +15,7 @@ export default class Header extends Component {
             src={veppo}
             alt='Ícone da rodoviária' />
           <div className='facade__title'>
-            Estação rodoviária de Porto Alegre
+            Estação Rodoviária de Porto Alegre
           </div>
         </div>
         <MenuBar />
