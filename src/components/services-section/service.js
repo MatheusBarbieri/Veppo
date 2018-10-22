@@ -21,12 +21,12 @@ export default class Service extends Component {
 
     return (
       <div className='service-row'>
-        <img
+        <div
           key={`service_${slug}`}
-          className='service-box'
-          src={image}
+          style={{ backgroundImage: `url(${image})` }}
+          className='default-box image-box'
           alt={description} />
-        <div className='box-title'>
+        <div className='default-box description-box'>
           {title}
         </div>
       </div>

@@ -4,5 +4,17 @@
   height: auto;
   width: 100%;
   justify-content: space-around;
-  background-color: $light-yellow;
+  padding-bottom: 5vw;
+  background-color: $white;
+}
+
+.service-section-header {
+  width: 82vw;
+  font-size: 15vh;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 1vh;
+  color: $main-color;
+  border-bottom: 5px solid $main-color;
 }

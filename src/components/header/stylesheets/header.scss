@@ -2,7 +2,7 @@
 @import '../../../stylesheets/fonts.scss';
 
 .header {
-  position: relative;
+  position: sticky;
   top: 0px;
   width: 100%;
   z-index: 9999;
@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   top: 0;
-  background-color: $dark-red;
+  background-color: $main-color;
 
   &__icon {
     display: inline-block;

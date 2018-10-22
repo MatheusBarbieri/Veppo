@@ -24,6 +24,9 @@ export default class ServicesSection extends Component {
   render() {
     return (
       <div className='services-container'>
+        <div className='service-section-header'>
+          Serviços
+        </div>
         {this.renderServices()}
       </div>
     )

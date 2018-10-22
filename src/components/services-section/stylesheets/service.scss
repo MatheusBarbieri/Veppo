@@ -10,23 +10,30 @@
   flex-direction: row-reverse;
 }
 
-.service-box {
+.default-box{
   width: 40vw;
-  height: 30vw;
-  background-size: cover;
-  background-position: center;
-  margin: 10px;
+  height: 20vw;
+  margin: 1vw;
+  transition: transform .2s;
+  border-radius: 10px;
 }
 
-.box-title {
-  margin: 10px;
+.default-box:hover {
+  transform: scale(1.05);
+}
+
+.image-box {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.description-box {
   display: flex;
-  width: 40vw;
-  height: 30vw;
   align-items: center;
   justify-content: center;
   font-size: 5vw;
   color: $white;
   font-weight: bold;
-  background-color: $dark-red;
+  background-color: $main-color;
 }
