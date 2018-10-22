@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import './stylesheets/menubar.scss'
+import SocialMediaBar from '../social-media-bar'
 
-import facebook from './icons/facebook-square.svg'
+import './stylesheets/menubar.scss'
 
 const menuItens = [
   {
@@ -38,17 +38,10 @@ export default class MenuBar extends Component {
           {this.renderMenuItens()}
 
           <div className='menubar-items__right-area'>
-            <div className='menu-item'>
+            <div className='menu-item__phone'>
               (51) 3210-0101
             </div>
-
-            <a href='https://www.facebook.com/rodoviariapoa/' className='facebook-icon'>
-              <img
-                className='facebook-icon'
-                src={facebook}
-                alt='Ícone do facebook' />
-            </a>
-
+            <SocialMediaBar />
           </div>
 
         </div>

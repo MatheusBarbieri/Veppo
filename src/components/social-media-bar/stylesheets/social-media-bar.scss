@@ -1,0 +1,13 @@
+@import '../../../stylesheets/colors.scss';
+@import '../../../stylesheets/fonts.scss';
+
+.social-media-bar{
+  display: flex;
+  height: 100%;
+
+  &__icon {
+    height: 80%;
+    margin-right: 10px;
+    margin-top: 8%;
+  }
+}

@@ -25,6 +25,14 @@
   }
 }
 
+.facebook-icon {
+  height: 80%;
+  margin-left: 10px;
+  margin-top: 1px;
+  color: $dark-red;
+  fill: $dark-red;
+}
+
 .menu-item {
   font-family: $opensans;
   text-decoration: none;
@@ -32,8 +40,4 @@
   font-size: 17px;
   color: $dark-red;
   fill: $dark-red;
-
-  &__phone {
-    margin-right: 10px;
-  }
 }

@@ -1,0 +1,24 @@
+@import '../../../stylesheets/colors.scss';
+@import '../../../stylesheets/fonts.scss';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+  height: 100px;
+  align-items: center;
+  top: 0;
+  background-color: $dark-red;
+  border-top: 3px solid $white;
+
+  &__text {
+    font-size: 20px;
+    color: $white;
+  }
+
+  &__social-media{
+    height: 30%
+
+  }
+}
