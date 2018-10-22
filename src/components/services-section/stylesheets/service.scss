@@ -1,39 +1,28 @@
 @import '../../../stylesheets/colors.scss';
 
-.service-row {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.service-row:nth-child(2n) {
-  flex-direction: row-reverse;
-}
-
-.default-box{
-  width: 40vw;
-  height: 20vw;
+.service {
   margin: 1vw;
-  transition: transform .2s;
-  border-radius: 10px;
+  text-decoration: none;
 }
 
-.default-box:hover {
+.service-image:hover {
   transform: scale(1.05);
 }
 
-.image-box {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-}
-
-.description-box {
+.service-image {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 5vw;
+  text-align: center;
+  width: 40vw;
+  height: 20vw;
+  border-radius: 10px;
+  font-size: 4vw;
   color: $white;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
   font-weight: bold;
-  background-color: $main-color;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  transition: transform .2s;
 }

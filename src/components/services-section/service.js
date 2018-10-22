@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import './stylesheets/service.scss'
 
@@ -20,16 +21,15 @@ export default class Service extends Component {
     } = this.props
 
     return (
-      <div className='service-row'>
+      <Link to={slug} className='service'>
         <div
           key={`service_${slug}`}
           style={{ backgroundImage: `url(${image})` }}
-          className='default-box image-box'
-          alt={description} />
-        <div className='default-box description-box'>
+          className='service-image'
+          alt={description}>
           {title}
         </div>
-      </div>
+      </Link>
     )
   }
 }

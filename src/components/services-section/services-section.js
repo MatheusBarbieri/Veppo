@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 
 import Service from './service'
 
@@ -12,13 +13,20 @@ export default class ServicesSection extends Component {
 
   renderServices() {
     const { services } = this.props
-    return services.map((service) => (
-      <Service
-        title={service.title}
-        description={service.description}
-        slug={`service_${service.slug}`}
-        image={service.image} />
-    ))
+
+    return _.flatten(_.chunk(services, 2).map((pairOfServices) => (
+      <div className='service-row'>
+        {
+          pairOfServices.map((service) => (
+            <Service
+              title={service.title}
+              description={service.description}
+              slug={`service_${service.slug}`}
+              image={service.image} />
+          ))
+        }
+      </div>
+    )))
   }
 
   render() {

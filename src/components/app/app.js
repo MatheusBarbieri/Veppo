@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
 import Header from '../header'
@@ -13,8 +18,11 @@ export default class App extends Component {
         <Router>
           <div className='app'>
             <Header />
-            <Route path='/' exact component={HomeView} />
-            <Route path='/horarios' component={BusScheduleView} />
+            <Switch>
+              <Route path='/home' component={HomeView} />
+              <Route path='/horarios' component={BusScheduleView} />
+              <Redirect from='*' to='/home' />
+            </Switch>
             <Footer />
           </div>
         </Router>

@@ -5,21 +5,77 @@ import ServicesSection from '../../services-section'
 
 import './stylesheets/home-view.scss'
 
-import pug from './images/pugg.jpg'
-import dogge from './images/dogge.jpg'
+import horarios from '../images/horarios.jpg'
+import passagensOnline from '../images/passagens-online.jpg'
+import passagensInternacionais from '../images/passagens-internacionais.jpg'
+import mapa from '../images/mapa.jpg'
+import postosDeVenda from '../images/postos-de-venda.jpg'
+import encomendas from '../images/encomendas.jpg'
+import correios from '../images/correios.jpg'
+import guiche from '../images/guiche.jpg'
+import guardaMalas from '../images/guarda-malas.jpg'
+import telefones from '../images/telefones.jpg'
 
 const homeServices = [
   {
-    title: 'Dogge fofíneo',
-    description: 'Foto de um dogge fofo',
-    image: dogge,
-    slug: 'dogge'
+    title: 'Horários de Ônibus',
+    description: 'Horários de ônibus',
+    image: horarios,
+    slug: 'horarios'
   },
   {
-    title: 'Pug fofíneo',
-    description: 'Foto de um pug fofo',
-    image: pug,
-    slug: 'pug'
+    title: 'Comprar Passagens Online',
+    description: 'Comprar passagens',
+    image: passagensOnline,
+    slug: 'passagens'
+  },
+  {
+    title: 'Mapa e Estrutura',
+    description: 'Mapa e Estrutura',
+    image: mapa,
+    slug: 'mapa-e-estrutura'
+  },
+  {
+    title: 'Postos de Venda',
+    description: 'Postos de Venda',
+    image: postosDeVenda,
+    slug: 'postos-de-venda'
+  },
+  {
+    title: 'Encomendas',
+    description: 'Encomendas',
+    image: encomendas,
+    slug: 'encomendas'
+  },
+  {
+    title: 'Guichês 24 Horas',
+    description: 'Guichês 24 horas',
+    image: guiche,
+    slug: 'guiche'
+  },
+  {
+    title: 'Agência dos Correios',
+    description: 'Agencia dos Correios',
+    image: correios,
+    slug: 'correios'
+  },
+  {
+    title: 'Guarda Malas',
+    description: 'Guarda Malas',
+    image: guardaMalas,
+    slug: 'guarda-malas'
+  },
+  {
+    title: 'Telefones',
+    description: 'Telefones',
+    image: telefones,
+    slug: 'telefones'
+  },
+  {
+    title: 'Passagens Interestaduais e Internacionais',
+    description: 'Telefones',
+    image: passagensInternacionais,
+    slug: 'passagens-internacionais'
   }
 ]
 
@@ -28,9 +84,9 @@ export default class HomeView extends Component {
     return (
       <div className='home-container'>
         <ParallaxBanner>
-          <div className='banner-content'>
+          <h1 className='banner-content'>
             Venha Viajar Conosco!
-          </div>
+          </h1>
         </ParallaxBanner>
         <div className='home-content'>
           <ServicesSection services={homeServices} />

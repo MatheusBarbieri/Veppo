@@ -30,8 +30,8 @@
   text-decoration: none;
   margin-left: 2%;
   font-size: 17px;
-  color: $main-color;
-  fill: $main-color;
+  color: $black;
+  fill: $black;
 
   &__phone {
     margin-right: 30px;
@@ -39,4 +39,9 @@
     color: $dark-grey;
     fill: $dark-grey;
   }
+}
+
+.menu-item:hover {
+  color: $light-grey;
+  fill: $light-grey;
 }
