@@ -44,7 +44,7 @@ export default class SocialMediaBar extends Component {
   renderIcons() {
     return socialMediaIcons.map((socialMediaIcon) => (
       <a
-        key={`item_${socialMediaIcon.title}`}
+        key={`sm_icon_${socialMediaIcon.title}`}
         href={socialMediaIcon.href}
         alt={socialMediaIcon.alt}>
         <img

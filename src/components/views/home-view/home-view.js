@@ -1,8 +1,27 @@
 import React, { Component } from 'react'
 
 import ParallaxBanner from '../../parallax-banner'
+import ServicesSection from '../../services-section'
 
 import './stylesheets/home-view.scss'
+
+import pug from './images/pugg.jpg'
+import dogge from './images/dogge.jpg'
+
+const homeServices = [
+  {
+    title: 'Dogge fofíneo',
+    description: 'Foto de um dogge fofo',
+    image: dogge,
+    slug: 'dogge'
+  },
+  {
+    title: 'Pug fofíneo',
+    description: 'Foto de um pug fofo',
+    image: pug,
+    slug: 'pug'
+  }
+]
 
 export default class HomeView extends Component {
   render() {
@@ -14,7 +33,7 @@ export default class HomeView extends Component {
           </div>
         </ParallaxBanner>
         <div className='home-content'>
-          <h1>Placeholding content</h1>
+          <ServicesSection services={homeServices} />
         </div>
       </div>
     )
