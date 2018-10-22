@@ -21,7 +21,7 @@ export default class ServicesSection extends Component {
             <Service
               title={service.title}
               description={service.description}
-              slug={`service_${service.slug}`}
+              slug={`${service.slug}`}
               image={service.image} />
           ))
         }

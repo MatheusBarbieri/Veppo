@@ -5,7 +5,7 @@ import ServicesSection from '../../services-section'
 
 import './stylesheets/home-view.scss'
 
-import horarios from '../images/horarios.jpg'
+import onibus from '../images/onibus.jpg'
 import passagensOnline from '../images/passagens-online.jpg'
 import passagensInternacionais from '../images/passagens-internacionais.jpg'
 import mapa from '../images/mapa.jpg'
@@ -20,14 +20,8 @@ const homeServices = [
   {
     title: 'Horários de Ônibus',
     description: 'Horários de ônibus',
-    image: horarios,
+    image: onibus,
     slug: 'horarios'
-  },
-  {
-    title: 'Comprar Passagens Online',
-    description: 'Comprar passagens',
-    image: passagensOnline,
-    slug: 'passagens'
   },
   {
     title: 'Mapa e Estrutura',
@@ -46,6 +40,12 @@ const homeServices = [
     description: 'Encomendas',
     image: encomendas,
     slug: 'encomendas'
+  },
+  {
+    title: 'Comprar Passagens Online',
+    description: 'Comprar passagens',
+    image: passagensOnline,
+    slug: 'passagens'
   },
   {
     title: 'Guichês 24 Horas',
@@ -73,7 +73,7 @@ const homeServices = [
   },
   {
     title: 'Passagens Interestaduais e Internacionais',
-    description: 'Telefones',
+    description: 'Passagens Interestaduais e Internacionais',
     image: passagensInternacionais,
     slug: 'passagens-internacionais'
   }

@@ -7,8 +7,8 @@ import './stylesheets/parallax-banner.scss'
 import bannerImage from './images/banner.jpg'
 
 const parallaxParam = {
-  min: '-30%',
-  max: '30%'
+  min: '-100%',
+  max: '100%'
 }
 
 const ParallaxBanner = ({ children }) => (
@@ -17,8 +17,8 @@ const ParallaxBanner = ({ children }) => (
       <div
         className='parallax-banner-image'
         style={{ backgroundImage: `url(${bannerImage})` }} />
-      {children && <div className='parallax-banner-children'>{children}</div>}
     </Parallax>
+    {children && <div className='parallax-banner-children'>{children}</div>}
   </div>
 )
 
