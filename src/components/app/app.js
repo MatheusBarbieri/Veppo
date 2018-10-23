@@ -8,7 +8,7 @@ import {
 import { ParallaxProvider } from 'react-scroll-parallax'
 
 import Header from '../header'
-import { HomeView, BusScheduleView } from '../views'
+import { HomeView, BusScheduleView, ServicesView } from '../views'
 import Footer from '../footer'
 
 export default class App extends Component {
@@ -18,11 +18,14 @@ export default class App extends Component {
         <Router>
           <div className='app'>
             <Header />
+
             <Switch>
               <Route path='/home' component={HomeView} />
               <Route path='/horarios' component={BusScheduleView} />
+              <Route path='/servicos' component={ServicesView} />
               <Redirect from='*' to='/home' />
             </Switch>
+
             <Footer />
           </div>
         </Router>

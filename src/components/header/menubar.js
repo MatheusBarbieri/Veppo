@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { HashLink } from 'react-router-hash-link'
 
 import SocialMediaBar from '../social-media-bar'
 
@@ -19,7 +18,7 @@ const menuItens = [
   },
   {
     title: 'Serviços',
-    href: '/home#servicos',
+    href: '/servicos',
     isHash: true
   }
 ]
@@ -30,9 +29,9 @@ export default class MenuBar extends Component {
       menuItens.map((menuItem) => (
         menuItem.isHash
           ? (
-            <HashLink key={`item_${menuItem.title}`} className='menu-item' to={menuItem.href}>
+            <Link key={`item_${menuItem.title}`} className='menu-item' to={menuItem.href}>
               {menuItem.title}
-            </HashLink>
+            </Link>
           )
           : (
             <Link key={`item_${menuItem.title}`} className='menu-item' to={menuItem.href}>
