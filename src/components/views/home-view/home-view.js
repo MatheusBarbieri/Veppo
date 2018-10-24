@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import ParallaxBanner from '../../parallax-banner'
 import ServicesSection from '../../services-section'
+import BuyNowButton from '../../buy-now-button'
 
 import './stylesheets/home-view.scss'
 
@@ -84,9 +85,10 @@ export default class HomeView extends Component {
     return (
       <div className='home-container'>
         <ParallaxBanner>
-          <h1 className='banner-content'>
-            Venha Viajar Conosco!
+          <h1 className='banner-text'>
+            VENHA VIAJAR CONOSCO!
           </h1>
+          <BuyNowButton />
         </ParallaxBanner>
         <div className='home-content'>
           <ServicesSection services={homeServices} />

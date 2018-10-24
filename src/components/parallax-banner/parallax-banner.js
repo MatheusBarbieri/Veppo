@@ -18,7 +18,15 @@ const ParallaxBanner = ({ children }) => (
         className='parallax-banner-image'
         style={{ backgroundImage: `url(${bannerImage})` }} />
     </Parallax>
-    {children && <div className='parallax-banner-children'>{children}</div>}
+    {children
+       && (
+       <div className='parallax-banner-content'>
+         <div className='parallax-banner-children'>
+           {children}
+         </div>
+       </div>
+       )
+     }
   </div>
 )
 

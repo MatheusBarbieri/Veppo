@@ -1,0 +1,40 @@
+@import '../../../stylesheets/colors.scss';
+@import '../../../stylesheets/fonts.scss';
+
+.buy-now-button {
+  display: flex;
+  align-items: center;
+  background-color: $secondary-color;
+  color: $white;
+  fill: $white;
+  height: 3vw;
+  width: 20vw;
+  box-shadow: 2px 3px 5px -2px rgba(0,0,0,0.75);
+  color: $black;
+  border-radius: 5px;
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__icon {
+    height: 80%;
+    margin: 0 5%;
+    color: inherit;
+    fill: $light-grey;
+
+  }
+
+  &__text {
+    display: inline-block;
+    font-family: $opensans;
+    white-space: nowrap;
+    font-size: 1.2vw;
+    color: inherit;
+  }
+}
+
+.buy-now-button:hover {
+  color: $light-grey;
+  fill: $light-grey;
+}

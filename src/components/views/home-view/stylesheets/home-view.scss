@@ -2,15 +2,18 @@
 @import '../../../../stylesheets/fonts.scss';
 
 .home-content {
+  position: relative;
   display: flex;
   align-content: space-between;
   width: 100%;
 }
 
-.banner-content {
+.banner-text {
+  white-space: nowrap;
   font-size: 5vw;
   font-weight: bold;
   font-family: $opensans;
-  color: $white;
-  fill: $white;
+  color: $secondary-color;
+  fill: $secondary-color;
+  text-shadow: 2px 4px 5px rgba(0,0,0,0.5);
 }
