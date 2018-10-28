@@ -90,9 +90,7 @@ export default class HomeView extends Component {
           </h1>
           <BuyNowButton />
         </ParallaxBanner>
-        <div className='home-content'>
-          <ServicesSection services={homeServices} />
-        </div>
+        <ServicesSection services={homeServices} />
       </div>
     )
   }

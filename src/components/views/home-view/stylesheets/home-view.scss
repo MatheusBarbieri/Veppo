@@ -3,12 +3,11 @@
 
 .home-content {
   position: relative;
-  display: flex;
-  align-content: space-between;
   width: 100%;
 }
 
 .banner-text {
+  margin: 2% 0;
   white-space: nowrap;
   font-size: 5vw;
   font-weight: bold;

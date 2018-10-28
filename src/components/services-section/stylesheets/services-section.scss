@@ -7,27 +7,10 @@
   position: relative;
   height: auto;
   width: 100%;
-  padding-left: 3.5%;
-  padding-bottom: 5vw;
-  background-color: $secondary-color;
-  box-shadow: 0px -3px 5px -2px rgba(0,0,0,0.75);
-}
-
-.service-section-header {
-  width: 82vw;
-  font-size: 10vh;
-  font-weight: bold;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.2);
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding-bottom: 1vh;
-  margin-left: 6%;
-  color: $main-color;
-  border-bottom: 5px solid $main-color;
 }
 
 .service-row {
   display: flex;
-  margin: 0 5%;
+  margin: min-content;
   justify-content: flex-start;
 }

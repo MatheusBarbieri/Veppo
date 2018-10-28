@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 
+import Section from '../section'
+import SectionTitle from '../section-title'
 import Service from './service'
 
 import './stylesheets/services-section.scss'
@@ -31,12 +33,12 @@ export default class ServicesSection extends Component {
 
   render() {
     return (
-      <div className='services-container'>
-        <div className='service-section-header'>
+      <Section className='services-container'>
+        <SectionTitle>
           Serviços
-        </div>
+        </SectionTitle>
         {this.renderServices()}
-      </div>
+      </Section>
     )
   }
 }
