@@ -1,16 +1,6 @@
 @import '../../../stylesheets/colors.scss';
 
-.services-container{
+.services-container {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  height: auto;
-  width: 100%;
-}
-
-.service-row {
-  display: flex;
-  margin: min-content;
-  justify-content: flex-start;
+  flex-wrap: wrap;
 }

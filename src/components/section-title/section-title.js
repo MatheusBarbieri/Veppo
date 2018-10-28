@@ -3,18 +3,18 @@ import PropTypes from 'prop-types'
 
 import './stylesheets/section-title.scss'
 
-const SectionTitle = ({ children }) => (
-  <div className='section-title'>
-    {children}
-  </div>
+const SectionTitle = ({ label }) => (
+  <h1 className='section-title'>
+    {label}
+  </h1>
 )
 
 SectionTitle.propTypes = {
-  children: PropTypes.object
+  label: PropTypes.string
 }
 
 SectionTitle.defaultProps = {
-  children: null
+  label: ''
 }
 
 export default SectionTitle

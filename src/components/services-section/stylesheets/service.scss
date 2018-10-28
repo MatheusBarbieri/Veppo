@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 40vw;
+  width: 80vw;
   height: 20vw;
   border-radius: 10px;
   font-size: 4vw;
@@ -25,4 +25,9 @@
   background-repeat: no-repeat;
   background-position: center top;
   transition: transform .2s;
+
+  @media only screen and (min-width: 768px) {
+    width: 40vw;
+    height: 20vw;
+  }
 }
