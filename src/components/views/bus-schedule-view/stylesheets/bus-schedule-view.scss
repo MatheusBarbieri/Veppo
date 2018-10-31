@@ -6,6 +6,11 @@
   min-height: 65vh;
 }
 
+.routes-list {
+  width: 100%;
+  margin-left: 1%;
+}
+
 .options-row {
   display: flex;
   flex-wrap: wrap;
@@ -14,11 +19,13 @@
   width: 100%;
 }
 
-.city-selector {
+
+div.city-selector {
   width: 300px;
+  border-radius: 100px;
 }
 
-.week-day-selector{
+div.week-day-selector{
   width: 160px;
   margin-left: 1vw;
 }

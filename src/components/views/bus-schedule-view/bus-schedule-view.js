@@ -4,36 +4,44 @@ import Selector from 'react-select'
 
 import Section from '../../section'
 import SectionTitle from '../../section-title'
+import RoutesList from '../../routes-list'
 import withCities from '../../../lib/withCities.js'
 import './stylesheets/bus-schedule-view.scss'
 
 const weekDays = [
   {
     value: 'sunday',
+    day: 1,
     label: 'Domingo'
   },
   {
     value: 'monday',
+    day: 2,
     label: 'Segunda-feira'
   },
   {
     value: 'tuesday',
+    day: 3,
     label: 'Terça-feira'
   },
   {
     value: 'wednesday',
+    day: 4,
     label: 'Quarta-feira'
   },
   {
     value: 'thursday',
+    day: 5,
     label: 'Quinta-feira'
   },
   {
     value: 'friday',
+    day: 6,
     label: 'Sexta-feira'
   },
   {
     value: 'saturday',
+    day: 7,
     label: 'Sábado'
   }
 ]
@@ -68,14 +76,23 @@ class BusScheduleView extends Component {
           <div className='options-row'>
             <Selector
               className='city-selector'
+              classNamePrefix='city-selector'
               value={selectedCity}
               onChange={this.handleCityChange}
-              options={cities} />
+              options={cities}
+              placeholder='Cidade Destino' />
             <Selector
               className='week-day-selector'
+              classNamePrefix='week-day-selector'
               value={selectedWeekDay}
               onChange={this.handleWeekDayChange}
-              options={weekDays} />
+              options={weekDays}
+              placeholder='Dia (opicional)' />
+          </div>
+          <div className='routes-list'>
+            <RoutesList
+              city={selectedCity && selectedCity.value}
+              weekDay={selectedWeekDay && selectedWeekDay.day} />
           </div>
         </Section>
       </div>

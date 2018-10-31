@@ -3,18 +3,18 @@ import PropTypes from 'prop-types'
 
 import './stylesheets/section.scss'
 
-const SectionTitle = ({ children }) => (
+const Section = ({ children }) => (
   <div className='section'>
     {children}
   </div>
 )
 
-SectionTitle.propTypes = {
-  children: PropTypes.object
+Section.propTypes = {
+  children: PropTypes.array
 }
 
-SectionTitle.defaultProps = {
+Section.defaultProps = {
   children: null
 }
 
-export default SectionTitle
+export default Section
