@@ -4,7 +4,7 @@ import Selector from 'react-select'
 
 import Section from '../../section'
 import SectionTitle from '../../section-title'
-import RoutesList from '../../routes-list'
+import RoutesTable from '../../routes-table'
 import withCities from '../../../lib/withCities.js'
 import './stylesheets/bus-schedule-view.scss'
 
@@ -90,7 +90,7 @@ class BusScheduleView extends Component {
               placeholder='Dia (opicional)' />
           </div>
           <div className='routes-list'>
-            <RoutesList
+            <RoutesTable
               city={selectedCity && selectedCity.value}
               weekDay={selectedWeekDay && selectedWeekDay.day} />
           </div>

@@ -6,26 +6,27 @@
   min-height: 65vh;
 }
 
-.routes-list {
+.routes {
   width: 100%;
-  margin-left: 1%;
 }
 
 .options-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin-left: 1%;
   width: 100%;
 }
 
 
 div.city-selector {
+  margin-top: 3px;
   width: 300px;
-  border-radius: 100px;
+  box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 0.75);
 }
 
 div.week-day-selector{
+  margin-top: 3px;
   width: 160px;
   margin-left: 1vw;
+  box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 0.75);
 }
