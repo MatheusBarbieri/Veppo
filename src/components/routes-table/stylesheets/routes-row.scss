@@ -1,0 +1,12 @@
+@import '../../../stylesheets/colors.scss';
+@import '../../../stylesheets/fonts.scss';
+
+.routes-row {
+  height: 6vw;
+  width: 100%;
+  word-wrap: break-word;
+
+  &-selected {
+    background-color: $very-light-grey;
+  }
+}
