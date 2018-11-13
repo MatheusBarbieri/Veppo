@@ -1,7 +1,9 @@
+@import './colors.scss';
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #4C0002;
+  background-color: $main-color;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -12,4 +14,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+tr:focus, div:focus ,a:focus {
+  outline-width: 2px;
+  outline-color: $light-blue;
+  outline-style: solid;
+  outline-offset: -1px;
 }
