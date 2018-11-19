@@ -37,17 +37,13 @@ const RoutesRow = ({
       onClick={(event) => handleClick(event, route.id)}
       onKeyDown={(event) => handleSpacebar(event, route.id)}>
       {tableCellsOrder.map((item) => (
-
         <td key={`${route.id}_${route[item]}_cell`}>
           <RoutesCell className={`routes-cell__${item}`}>
-            {
-              item == 'weekDays'
-                ? <Weekdays weekdays={route[item]} />
-                : route[item]
-            }
+            {item === 'weekDays'
+              ? <Weekdays weekdays={route[item]} />
+              : route[item]}
           </RoutesCell>
         </td>
-
       ))}
     </tr>
   )

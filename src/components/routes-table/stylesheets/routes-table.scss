@@ -12,6 +12,17 @@
   border-width: 1px;
   box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 0.75);
 
+  &__footer {
+    height: 52px;
+    border-top: 1px solid $silver-grey;
+  }
+
+  &__footer-cell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
   &__body {
     width: 100%;
     border-collapse: collapse;

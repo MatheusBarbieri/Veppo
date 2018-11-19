@@ -1,0 +1,26 @@
+@import '../../../stylesheets/colors.scss';
+
+.table-paginator {
+  width: auto;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: left;
+
+  &__current-page {
+    width: 105px;
+  }
+
+  &__left-navigator, &__right-navigator {
+    border: none;
+    margin: 0 5px;
+
+    &:hover {
+      color: $light-grey;
+    }
+
+    &__off {
+      visibility: hidden;
+    }
+  }
+}

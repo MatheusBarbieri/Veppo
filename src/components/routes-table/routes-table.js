@@ -27,7 +27,7 @@ class RoutesTable extends React.Component {
     orderBy: 'partTime',
     selected: null,
     page: 0,
-    rowsPerPage: 10,
+    rowsPerPage: 5,
     routes: null,
     isLoading: false
   }
@@ -47,13 +47,13 @@ class RoutesTable extends React.Component {
   handleClick = (event, id) => this.setState({ selected: id })
 
   handleSpacebar = (event, id) => {
-    if (event.charCode == 32 || event.keyCode == 32) {
+    if (event.charCode === 32 || event.keyCode === 32) {
       event.preventDefault()
       this.setState({ selected: id })
     }
   }
 
-  handleChangePage = (event, page) => this.setState({ page })
+  handleChangePage = (page) => this.setState({ page })
 
   isSelected = (id) => {
     const { selected } = this.state
@@ -136,6 +136,7 @@ class RoutesTable extends React.Component {
       <div className='routes-table'>
         <table className='routes-table__body'>
           <tbody>
+
             <RoutesHeader
               order={order}
               orderBy={orderBy}
@@ -144,11 +145,17 @@ class RoutesTable extends React.Component {
 
             {this.renderRows()}
 
-            <TablePaginator
-              handleChangePage={this.handleChangePage}
-              numberRoutes={routes.length}
-              rowsPerPage={rowsPerPage}
-              curretPage={page} />
+            <tr className='routes-table__footer'>
+              <td colSpan='999'>
+                <div className='routes-table__footer-cell'>
+                  <TablePaginator
+                    handleChangePage={this.handleChangePage}
+                    numberRoutes={routes.length}
+                    rowsPerPage={rowsPerPage}
+                    currentPage={page} />
+                </div>
+              </td>
+            </tr>
 
           </tbody>
         </table>

@@ -2,11 +2,23 @@
 @import '../../../stylesheets/fonts.scss';
 
 .routes-row {
-  height: 6vw;
+  height: 80px;
   width: 100%;
   word-wrap: break-word;
 
   &-selected {
     background-color: $very-light-grey;
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 70px;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 80px;
+  }
+
+  @media only screen and (min-width: 1330px) {
+    height: 80px;
   }
 }
