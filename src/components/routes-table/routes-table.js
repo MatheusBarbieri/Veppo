@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import _compact from 'lodash/compact'
+
 import { veppoApiHost } from '../../config.js'
 import { stableSort, getSorting } from './util'
 
@@ -14,7 +16,8 @@ import './stylesheets/routes-table.scss'
 class RoutesTable extends React.Component {
   static propTypes = {
     city: PropTypes.string,
-    weekDay: PropTypes.number
+    weekDay: PropTypes.number,
+    onRouteChange: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -23,33 +26,28 @@ class RoutesTable extends React.Component {
   }
 
   state = {
-    order: 'asc',
-    orderBy: 'partTime',
     selected: null,
     page: 0,
     rowsPerPage: 5,
     routes: null,
-    isLoading: false
+    filteredRoutes: null,
+    isLoading: false,
+    city: null, // eslint-disable-line
+    weekDay: null // eslint-disable-line
   }
 
-  handleRequestSort = (event, property) => {
-    const newOrderBy = property
-    let newOrder = 'desc'
+  handleClick = (event, route) => {
+    const { onRouteChange } = this.props
+    this.setState({ selected: route.id })
+    onRouteChange(route)
+  }
 
-    const { order, orderBy } = this.state
-    if (orderBy === property && order === 'desc') {
-      newOrder = 'asc'
-    }
-
-    this.setState({ order: newOrder, orderBy: newOrderBy })
-  };
-
-  handleClick = (event, id) => this.setState({ selected: id })
-
-  handleSpacebar = (event, id) => {
+  handleSpacebar = (event, route) => {
+    const { onRouteChange } = this.props
     if (event.charCode === 32 || event.keyCode === 32) {
       event.preventDefault()
-      this.setState({ selected: id })
+      this.setState({ selected: route.id })
+      onRouteChange(route)
     }
   }
 
@@ -76,24 +74,61 @@ class RoutesTable extends React.Component {
     fetch(host)
       .then((res) => res.json())
       .then((routes) => this.identify(routes))
-      .then((routes) => this.setState({ routes }))
+      .then((routes) => {
+        this.setState({ routes })
+        this.filterRoutes(routes)
+      })
       .catch((err) => console.error(err))
+  }
+
+  filterRoutes(routes) {
+    const { weekDay } = this.props
+
+    if (!weekDay) {
+      this.setState({ filteredRoutes: routes })
+    } else {
+      const filteredRoutes = _compact(
+        routes.filter((route) => route.weekDays.includes(weekDay))
+      )
+      this.setState({ filteredRoutes })
+    }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    const { city, weekDay } = state
+
+    const hasCityChanged = props.city !== city
+    const hasWeekDayChanged = props.weekDay !== weekDay
+
+    const newState = { ...state, city: props.city, weekDay: props.weekDay }
+
+    if (hasWeekDayChanged || hasCityChanged) {
+      newState.selected = null
+      newState.page = 0
+    }
+
+    return newState
   }
 
   componentDidMount() {
     const { city } = this.props
-    if (city) this.fetchRoutes()
+    if (city) this.fetchRoutes().then((routes) => this.filterRoutes(routes))
   }
 
   componentDidUpdate(prevProps) {
-    const { city } = this.props
+    const { city, weekDay } = this.props
+    const { routes } = this.state
+
     const hasCityChanged = prevProps.city !== city
+    const hasWeekDayChanged = prevProps.weekDay !== weekDay
+
     if (hasCityChanged) this.fetchRoutes()
+    if (hasWeekDayChanged && routes) this.filterRoutes(routes)
   }
 
   renderRows() {
     const {
-      routes,
+      filteredRoutes,
       order,
       orderBy,
       rowsPerPage,
@@ -102,7 +137,7 @@ class RoutesTable extends React.Component {
 
     return (
       <>
-        {stableSort(routes, getSorting(order, orderBy))
+        {stableSort(filteredRoutes, getSorting(order, orderBy))
           .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
           .map((route) => (
             <RoutesRow
@@ -113,7 +148,7 @@ class RoutesTable extends React.Component {
               isSelected={this.isSelected} />
           ))}
         <RoutesEmptyRows
-          numRoutes={routes.length}
+          numRoutes={filteredRoutes.length}
           rowsPerPage={rowsPerPage}
           page={page} />
       </>
@@ -122,7 +157,7 @@ class RoutesTable extends React.Component {
 
   render() {
     const {
-      routes,
+      filteredRoutes,
       order,
       orderBy,
       rowsPerPage,
@@ -130,7 +165,7 @@ class RoutesTable extends React.Component {
       isLoading
     } = this.state
 
-    if (!routes || isLoading) return null
+    if (!filteredRoutes || isLoading) return null
 
     return (
       <div className='routes-table'>
@@ -141,7 +176,7 @@ class RoutesTable extends React.Component {
               order={order}
               orderBy={orderBy}
               onRequestSort={this.handleRequestSort}
-              rowCount={routes.length} />
+              rowCount={filteredRoutes.length} />
 
             {this.renderRows()}
 
@@ -150,7 +185,7 @@ class RoutesTable extends React.Component {
                 <div className='routes-table__footer-cell'>
                   <TablePaginator
                     handleChangePage={this.handleChangePage}
-                    numberRoutes={routes.length}
+                    numberRoutes={filteredRoutes.length}
                     rowsPerPage={rowsPerPage}
                     currentPage={page} />
                 </div>

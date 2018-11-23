@@ -1,4 +1,5 @@
 import React from 'react'
+import uid from 'uniqid'
 
 import RoutesCell from './routes-cell'
 
@@ -21,7 +22,7 @@ class RoutesHeader extends React.Component {
     return (
       <tr className='routes-header'>
         {rows.map((row) => (
-          <th key={`${row.id}_${row.label}_header`}>
+          <th key={uid('header')}>
             <RoutesCell>
               {row.label}
             </RoutesCell>

@@ -57,12 +57,15 @@ class BusScheduleView extends Component {
 
   state = {
     selectedCity: null,
-    selectedWeekDay: null
+    selectedWeekDay: null,
+    selectedRoute: null
   }
 
   handleCityChange = (selectedCity) => this.setState({ selectedCity })
 
   handleWeekDayChange = (selectedWeekDay) => this.setState({ selectedWeekDay })
+
+  handleRouteChange = (selectedRoute) => this.setState({ selectedRoute })
 
   render() {
     const { cities } = this.props
@@ -92,7 +95,8 @@ class BusScheduleView extends Component {
           <div className='routes-list'>
             <RoutesTable
               city={selectedCity && selectedCity.value}
-              weekDay={selectedWeekDay && selectedWeekDay.day} />
+              weekDay={selectedWeekDay && selectedWeekDay.day}
+              onRouteChange={this.handleRouteChange} />
           </div>
         </Section>
       </div>

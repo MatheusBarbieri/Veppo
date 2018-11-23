@@ -10,7 +10,7 @@ const RoutesEmptyRow = ({ numRoutes, rowsPerPage, page }) => {
 
   return !isLastPage ? null : (
     Array.from({ length: numEmptyRows }, () => (
-      <div className='routes-row' />
+      <tr className='routes-row' />
     ))
   )
 }

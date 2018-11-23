@@ -7,7 +7,9 @@
   word-wrap: break-word;
 
   &-selected {
-    background-color: $very-light-grey;
+    background-color: $field-selector;
+    border-top: 1px solid $silver-grey;
+    border-bottom: 1px solid $silver-grey;
   }
 
   @media only screen and (min-width: 768px) {
