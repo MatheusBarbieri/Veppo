@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import uid from 'uniqid'
 
 import SocialMediaBar from '../social-media-bar'
 
@@ -24,23 +25,11 @@ const menuItens = [
 ]
 
 export default class MenuBar extends Component {
-  renderMenuItens() {
-    return (
-      menuItens.map((menuItem) => (
-        menuItem.isHash
-          ? (
-            <Link key={`item_${menuItem.title}`} className='menu-item' to={menuItem.href}>
-              {menuItem.title}
-            </Link>
-          )
-          : (
-            <Link key={`item_${menuItem.title}`} className='menu-item' to={menuItem.href}>
-              {menuItem.title}
-            </Link>
-          )
-      ))
-    )
-  }
+  renderMenuItens = () => menuItens.map((menuItem) => (
+    <Link key={uid('menu-item')} className='menu-item' to={menuItem.href}>
+      {menuItem.title}
+    </Link>
+  ))
 
   render() {
     return (

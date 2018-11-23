@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import uid from 'uniqid'
 
 import './stylesheets/service.scss'
 
@@ -23,7 +24,7 @@ export default class Service extends Component {
     return (
       <Link to={slug} className='service'>
         <div
-          key={`service_${slug}`}
+          key={uid(`service_${slug}`)}
           style={{ backgroundImage: `url(${image})` }}
           className='service-image'
           alt={description}>
