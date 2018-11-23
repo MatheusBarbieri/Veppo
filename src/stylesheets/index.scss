@@ -18,7 +18,7 @@ code {
 
 tr:focus, div:focus ,a:focus {
   outline-width: 2px;
-  outline-color: $light-blue;
+  outline-color: $selector-color;
   outline-style: solid;
   outline-offset: -1px;
 }
