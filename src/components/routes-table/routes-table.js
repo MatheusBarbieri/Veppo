@@ -127,7 +127,7 @@ class RoutesTable extends React.Component {
     const hasCityChanged = prevProps.city !== city
     const hasWeekDayChanged = prevProps.weekDay !== weekDay
 
-    if (hasCityChanged) this.fetchRoutes()
+    if (hasCityChanged && city) this.fetchRoutes()
     if (hasWeekDayChanged && routes) this.filterRoutes(routes)
   }
 
@@ -182,8 +182,13 @@ class RoutesTable extends React.Component {
       )
     }
 
-    if (!filteredRoutes) return null
-
+    if (!filteredRoutes) {
+      return (
+        <div className='routes-table__place-holder-text'>
+          Selecione uma cidade...
+        </div>
+      )
+    }
     return (
       <div className='routes-table'>
         <table className='routes-table__body'>
