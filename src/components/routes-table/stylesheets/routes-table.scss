@@ -13,7 +13,21 @@
   box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 0.75);
 
   &__loader {
-    margin: 30vh 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 30vh 0;
+  }
+
+  &__place-holder-text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 20vh 0;
+    font-size: 30px;
+    color: $silver-grey;
   }
 
   &__footer {
