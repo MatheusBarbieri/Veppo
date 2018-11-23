@@ -5,6 +5,11 @@
   display: flex;
   height: 100%;
 
+  &__link {
+    height: 100%;
+    width: auto;
+  }
+
   &__icon {
     height: 60%;
     margin-right: 10px;

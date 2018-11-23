@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import uid from 'uniqid'
 
 import facebook from './icons/facebook.svg'
 import twitter from './icons/twitter.svg'
@@ -44,7 +45,8 @@ export default class SocialMediaBar extends Component {
   renderIcons() {
     return socialMediaIcons.map((socialMediaIcon) => (
       <a
-        key={`sm_icon_${socialMediaIcon.title}`}
+        key={uid('social-media-icon')}
+        className='social-media-bar__link'
         href={socialMediaIcon.href}
         alt={socialMediaIcon.alt}>
         <img
