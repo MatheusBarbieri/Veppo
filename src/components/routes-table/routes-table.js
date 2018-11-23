@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Loader from 'react-loader-spinner'
 
 import _compact from 'lodash/compact'
 
@@ -71,14 +72,18 @@ class RoutesTable extends React.Component {
   fetchRoutes() {
     const { city } = this.props
     const host = `${veppoApiHost}/routes?city=${city}`
+    this.setState({ isLoading: true })
     fetch(host)
       .then((res) => res.json())
       .then((routes) => this.identify(routes))
       .then((routes) => {
-        this.setState({ routes })
+        this.setState({ routes, isLoading: false })
         this.filterRoutes(routes)
       })
-      .catch((err) => console.error(err))
+      .catch((err) => {
+        this.setState({ isLoading: false })
+        console.error(err)
+      })
   }
 
   filterRoutes(routes) {
@@ -165,7 +170,19 @@ class RoutesTable extends React.Component {
       isLoading
     } = this.state
 
-    if (!filteredRoutes || isLoading) return null
+    if (isLoading) {
+      return (
+        <div className='routes-table__loader'>
+          <Loader
+            type='Bars'
+            color='#4C0002'
+            height={80}
+            width={80} />
+        </div>
+      )
+    }
+
+    if (!filteredRoutes) return null
 
     return (
       <div className='routes-table'>
