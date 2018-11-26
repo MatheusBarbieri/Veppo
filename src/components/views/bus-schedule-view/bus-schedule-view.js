@@ -1,3 +1,4 @@
+import Modal from 'react-responsive-modal'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Selector from 'react-select'
@@ -58,7 +59,16 @@ class BusScheduleView extends Component {
   state = {
     selectedCity: null,
     selectedWeekDay: null,
-    selectedRoute: null
+    selectedRoute: null,
+    loginOpen: false
+  }
+
+  onOpenModal = () => {
+    this.setState({ loginOpen: true })
+  }
+
+  onCloseModal = () => {
+    this.setState({ loginOpen: false })
   }
 
   handleCityChange = (selectedCity) => this.setState({ selectedCity })
@@ -67,10 +77,19 @@ class BusScheduleView extends Component {
 
   handleRouteChange = (selectedRoute) => this.setState({ selectedRoute })
 
+  handleBuyClick = () => {
+    this.onOpenModal()
+  }
+
   render() {
     const { cities } = this.props
     if (!cities) return null
-    const { selectedCity, selectedWeekDay } = this.state
+    const {
+      selectedCity,
+      selectedWeekDay,
+      loginOpen,
+      selectedRoute
+    } = this.state
 
     return (
       <div className='bus-schedule-view'>
@@ -95,8 +114,13 @@ class BusScheduleView extends Component {
           <RoutesTable
             city={selectedCity && selectedCity.value}
             weekDay={selectedWeekDay && selectedWeekDay.day}
-            onRouteChange={this.handleRouteChange} />
+            onRouteChange={this.handleRouteChange}
+            onBuyClick={this.handleBuyClick} />
         </Section>
+
+        <Modal open={loginOpen} onClose={this.onCloseModal} center>
+          <h2>{selectedRoute && selectedRoute.id}</h2>
+        </Modal>
       </div>
     )
   }

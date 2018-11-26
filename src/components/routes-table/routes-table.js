@@ -19,7 +19,8 @@ class RoutesTable extends React.Component {
   static propTypes = {
     city: PropTypes.string,
     weekDay: PropTypes.number,
-    onRouteChange: PropTypes.func.isRequired
+    onRouteChange: PropTypes.func.isRequired,
+    onBuyClick: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -34,8 +35,8 @@ class RoutesTable extends React.Component {
     routes: null,
     filteredRoutes: null,
     isLoading: false,
-    city: null, // eslint-disable-line
-    weekDay: null // eslint-disable-line
+    city: null,
+    weekDay: null
   }
 
   handleClick = (event, route) => {
@@ -54,6 +55,19 @@ class RoutesTable extends React.Component {
         this.setState({ selected: route })
         onRouteChange(route)
       }
+    }
+  }
+
+  handleBuyButtonClick = () => {
+    const { onBuyClick } = this.props
+    onBuyClick()
+  }
+
+  handleSpacebarBuyButton = (event) => {
+    const { onBuyClick } = this.props
+    if (event.charCode === 32 || event.keyCode === 32) {
+      event.preventDefault()
+      onBuyClick()
     }
   }
 
@@ -225,11 +239,11 @@ class RoutesTable extends React.Component {
       weekDay,
       selected,
       filteredRoutes,
+      isLoading,
       order,
       orderBy,
       rowsPerPage,
-      page,
-      isLoading
+      page
     } = this.state
 
     if (isLoading) {
@@ -284,7 +298,8 @@ class RoutesTable extends React.Component {
 
                   <button
                     type='button'
-                    onClick={this.handleBuy}
+                    onClick={(event) => this.handleBuyButtonClick(event)}
+                    onKeyDown={(event) => this.handleSpacebarBuyButton(event)}
                     className={buttonClasses}>
                     Comprar!
                   </button>
@@ -294,7 +309,6 @@ class RoutesTable extends React.Component {
           </tbody>
         </table>
       </div>
-
     )
   }
 }
