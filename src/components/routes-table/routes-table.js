@@ -44,8 +44,6 @@ class RoutesTable extends React.Component {
       this.setState({ selected: route })
       onRouteChange(route)
     }
-    event.preventDefault()
-    event.stopPropagation()
   }
 
   handleSpacebar = (event, route) => {
@@ -117,6 +115,7 @@ class RoutesTable extends React.Component {
     if (hasWeekDayChanged || hasCityChanged) {
       newState.selected = null
       newState.page = 0
+      props.onRouteChange(null)
     }
 
     return newState
@@ -167,7 +166,7 @@ class RoutesTable extends React.Component {
     }
 
     const displayWeekDay = humanizeWeekDay()
-    const displayCity = city.charAt(0).toUpperCase() + city.slice(1)
+    const displayCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : ''
 
     const textClasses = classnames(
       'routes-table__footer-cell__text',
@@ -175,9 +174,10 @@ class RoutesTable extends React.Component {
     )
 
     const text = () => {
-      if (!weekDay) return 'Selecione um dia da semana...'
-      if (weekDay && !selected) return 'Selecione uma rota...'
-      if (weekDay && selected) return `Passagem para ${displayCity} às ${selected.partTime}, ${displayWeekDay}!`
+      if (city && !weekDay) return 'Selecione um dia da semana...'
+      if (city && weekDay && !selected) return 'Selecione uma rota...'
+      if (city && weekDay && selected) return `Passagem para ${displayCity} às ${selected.partTime}, ${displayWeekDay}!`
+      return ''
     }
 
     return (
@@ -189,6 +189,7 @@ class RoutesTable extends React.Component {
 
   renderRows() {
     const {
+      city,
       filteredRoutes,
       order,
       orderBy,
@@ -207,7 +208,7 @@ class RoutesTable extends React.Component {
               route={route}
               handleClick={this.handleClick}
               handleSpacebar={this.handleSpacebar}
-              isSelectable={weekDay}
+              isSelectable={city && weekDay}
               isSelected={this.isSelected} />
           ))}
         <RoutesEmptyRows
@@ -220,6 +221,7 @@ class RoutesTable extends React.Component {
 
   render() {
     const {
+      city,
       weekDay,
       selected,
       filteredRoutes,
@@ -242,7 +244,7 @@ class RoutesTable extends React.Component {
       )
     }
 
-    if (!filteredRoutes) {
+    if (!city || !filteredRoutes) {
       return (
         <div className='routes-table__place-holder-text'>
           Selecione uma cidade...
@@ -252,7 +254,7 @@ class RoutesTable extends React.Component {
 
     const buttonClasses = classnames(
       'routes-table__footer-cell__buy-button',
-      { 'routes-table__footer-cell__buy-button--visible': weekDay && selected }
+      { 'routes-table__footer-cell__buy-button--visible': city && weekDay && selected }
     )
 
     return (
