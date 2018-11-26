@@ -6,10 +6,34 @@
   width: 100%;
   word-wrap: break-word;
 
-  &-selected {
+  &:focus {
+    outline-width: 0;
+  }
+
+  &--selectable {
+    &:focus {
+      outline-width: 1px;
+      outline-color: $selector-color;
+      outline-style: solid;
+      outline-offset: -1px;
+    }
+
+    &:hover {
+      background-color: $very-light-blue;
+      cursor: pointer;
+    }
+  }
+
+
+  &--selected {
     background-color: $field-selector;
     border-top: 1px solid $silver-grey;
     border-bottom: 1px solid $silver-grey;
+    outline-width: 0;
+    &:hover {
+      background-color: $field-selector;
+      cursor: pointer;
+    }
   }
 
   @media only screen and (min-width: 768px) {

@@ -21,10 +21,18 @@ const tableCellsOrder = [
 ]
 
 const RoutesRow = ({
-  isSelected, route, handleClick, handleSpacebar
+  isSelected, route, handleClick, handleSpacebar, className, isSelectable
 }) => {
   const selected = isSelected(route.id)
-  const classes = classnames('routes-row', { 'routes-row-selected': selected })
+
+  const classes = classnames(
+    className,
+    'routes-row',
+    {
+      'routes-row--selectable': isSelectable,
+      'routes-row--selected': selected
+    }
+  )
 
   const humanize = (timeMin) => {
     const minutes = timeMin % 60
@@ -40,11 +48,15 @@ const RoutesRow = ({
       return minutes + (minutes === 1 ? ' minuto' : ' minutos')
     }
 
-    const andLabel = () => (minutes && hours ? ' e ' : '')
+    const andLabel = () => (
+      minutes && hours ? (<>{' e '} <br /></>) : ''
+    )
 
     return (
       <>
-        {hoursLabel() + andLabel()}<br />{minsLabel()}
+        {hoursLabel()}
+        {andLabel()}
+        {minsLabel()}
       </>
     )
   }
@@ -86,10 +98,17 @@ const RoutesRow = ({
 }
 
 RoutesRow.propTypes = {
+  className: PropTypes.string,
+  isSelectable: PropTypes.bool,
   isSelected: PropTypes.func.isRequired,
   handleClick: PropTypes.func.isRequired,
   handleSpacebar: PropTypes.func.isRequired,
   route: PropTypes.object.isRequired
+}
+
+RoutesRow.defaultProps = {
+  isSelectable: false,
+  className: ''
 }
 
 export default RoutesRow

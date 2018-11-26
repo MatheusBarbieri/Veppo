@@ -8,11 +8,11 @@
   text-align: center;
   align-items: center;
   padding: 5px;
-  width: 8vw;
+  width: auto;
   font-size: 1.3vw;
 
   &__route {
-    word-break: break-word;
+    word-break: keep-all;
   }
 
   &__weekDays {

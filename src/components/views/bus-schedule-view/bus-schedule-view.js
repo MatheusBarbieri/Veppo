@@ -90,7 +90,7 @@ class BusScheduleView extends Component {
               value={selectedWeekDay}
               onChange={this.handleWeekDayChange}
               options={weekDays}
-              placeholder='Dia (opicional)' />
+              placeholder='Dia da semana' />
           </div>
           <RoutesTable
             city={selectedCity && selectedCity.value}

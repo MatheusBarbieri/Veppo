@@ -3,7 +3,6 @@
 .table-paginator {
   width: auto;
   display: flex;
-  align-self: flex-end;
   align-items: center;
   justify-content: left;
 
@@ -11,16 +10,35 @@
     width: 105px;
   }
 
-  &__left-navigator, &__right-navigator {
+  &__right-navigator {
     border: none;
-    margin: 0 5px;
+    padding: 0px;
+    margin: 0 0 0 10px;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
 
     &:hover {
       color: $light-grey;
     }
 
     &__off {
-      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &__left-navigator {
+    border: none;
+    padding: 0px;
+    margin: 0 10px 0 0;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+
+    &:hover {
+      color: $light-grey;
+    }
+
+    &__off {
+      opacity: 0;
     }
   }
 }

@@ -8,6 +8,7 @@ import './stylesheets/table-paginator.scss'
 
 const TablePaginator = (
   {
+    className,
     handleChangePage,
     numberRoutes,
     rowsPerPage,
@@ -43,7 +44,7 @@ const TablePaginator = (
   })
 
   return (
-    <div className='table-paginator'>
+    <div className={`table-paginator ${className}`}>
       <button
         type='button'
         className={leftNavigator}
@@ -68,10 +69,15 @@ const TablePaginator = (
 }
 
 TablePaginator.propTypes = {
+  className: PropTypes.string,
   handleChangePage: PropTypes.func.isRequired,
   numberRoutes: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired
+}
+
+TablePaginator.defaultProps = {
+  className: ''
 }
 
 export default TablePaginator
