@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Selector from 'react-select'
 
+import LoginForm from '../../login-form'
 import Section from '../../section'
 import SectionTitle from '../../section-title'
 import RoutesTable from '../../routes-table'
@@ -44,6 +45,11 @@ const weekDays = [
     value: 'saturday',
     day: 7,
     label: 'Sábado'
+  },
+  {
+    value: 'alldays',
+    day: 0,
+    label: 'Todos os dias'
   }
 ]
 
@@ -91,6 +97,11 @@ class BusScheduleView extends Component {
       selectedRoute
     } = this.state
 
+    const modalClassNames = {
+      modal: 'bus-schedule-view__modal',
+      closeIcon: 'bus-schedule-view__modal__close-icon'
+    }
+
     return (
       <div className='bus-schedule-view'>
         <Section>
@@ -118,8 +129,8 @@ class BusScheduleView extends Component {
             onBuyClick={this.handleBuyClick} />
         </Section>
 
-        <Modal open={loginOpen} onClose={this.onCloseModal} center>
-          <h2>{selectedRoute && selectedRoute.id}</h2>
+        <Modal classNames={modalClassNames} open={loginOpen} onClose={this.onCloseModal} center>
+          <LoginForm onLogin={() => {}} />
         </Modal>
       </div>
     )
