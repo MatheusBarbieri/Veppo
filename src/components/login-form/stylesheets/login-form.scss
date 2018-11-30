@@ -1,0 +1,76 @@
+@import '../../../stylesheets/colors.scss';
+@import '../../../stylesheets/fonts.scss';
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    margin-bottom: 15px;
+  }
+
+  &__label {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    font-family: $opensans;
+  }
+
+  &__field {
+    font-size: 20px;
+    font-family: $opensans;
+    width: 350px;
+    border: none;
+    margin: 0;
+    border-bottom: 2px solid $silver-grey;
+
+    &::placeholder {
+      color: $silver-grey;
+    }
+  }
+
+  &__submit {
+    margin: 10px 0;
+    border: none;
+    background: $selector-color;
+    color: $white;
+    font-size: 1.5vw;
+    font-family: $opensans;
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 4px;
+    transition: transform 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.02);
+    }
+  }
+
+  &__no-account {
+    text-align: center;
+  }
+
+  &__register {
+    text-decoration: none;
+    font-weight: 500;
+    color: $black;
+
+    &:hover {
+      color: $light-grey;
+    }
+  }
+
+  &__forgotten {
+    & > * {
+      color: $black;
+      text-decoration: none;
+
+      &:hover {
+        color: $light-grey;
+      }
+    }
+
+    text-align: right;
+    font-size: 15px;
+  }
+}
