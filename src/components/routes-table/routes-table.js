@@ -188,8 +188,8 @@ class RoutesTable extends React.Component {
     )
 
     const text = () => {
-      if (city && !weekDay) return 'Selecione um dia da semana...'
-      if (city && weekDay && !selected) return 'Selecione uma rota...'
+      if (city && !weekDay) return 'Para comprar passagens, selecione um dia da semana...'
+      if (city && weekDay && !selected) return 'Para comprar passagens, selecione uma rota...'
       if (city && weekDay && selected) return `Passagem para ${displayCity} às ${selected.partTime}, ${displayWeekDay}!`
       return ''
     }
