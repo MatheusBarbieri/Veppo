@@ -7,6 +7,9 @@ import {
 } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
+import { Provider } from 'react-redux'
+import store from '../redux/store.js'
+
 import Header from '../header'
 import { HomeView, BusScheduleView, ServicesView } from '../views'
 import Footer from '../footer'
@@ -14,22 +17,24 @@ import Footer from '../footer'
 export default class App extends Component {
   render() {
     return (
-      <ParallaxProvider>
-        <Router>
-          <div className='app'>
-            <Header />
+      <Provider store={store}>
+        <ParallaxProvider>
+          <Router>
+            <div className='app'>
+              <Header />
 
-            <Switch>
-              <Route path='/home' component={HomeView} />
-              <Route path='/horarios' component={BusScheduleView} />
-              <Route path='/servicos' component={ServicesView} />
-              <Redirect from='*' to='/home' />
-            </Switch>
+              <Switch>
+                <Route path='/home' component={HomeView} />
+                <Route path='/horarios' component={BusScheduleView} />
+                <Route path='/servicos' component={ServicesView} />
+                <Redirect from='*' to='/home' />
+              </Switch>
 
-            <Footer />
-          </div>
-        </Router>
-      </ParallaxProvider>
+              <Footer />
+            </div>
+          </Router>
+        </ParallaxProvider>
+      </Provider>
     )
   }
 }
