@@ -8,6 +8,7 @@ import _compact from 'lodash/compact'
 import { veppoApiHost } from '../../config.js'
 import { stableSort, getSorting } from './util'
 
+import { humanizeWeekDay } from '../../lib/moment.js'
 import RoutesHeader from './routes-header'
 import RoutesEmptyRows from './routes-empty-rows'
 import RoutesRow from './routes-row'
@@ -158,28 +159,7 @@ class RoutesTable extends React.Component {
       selected
     } = this.state
 
-    const humanizeWeekDay = () => {
-      switch (weekDay) {
-        case 1:
-          return 'no domingo'
-        case 2:
-          return 'na segunda-feira'
-        case 3:
-          return 'na terça-feira'
-        case 4:
-          return 'na quarta-feira'
-        case 5:
-          return 'na quinta-feira'
-        case 6:
-          return 'na sexta-feira'
-        case 7:
-          return 'no sábado'
-        default:
-          return ''
-      }
-    }
-
-    const displayWeekDay = humanizeWeekDay()
+    const displayWeekDay = humanizeWeekDay(weekDay)
     const displayCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : ''
 
     const textClasses = classnames(

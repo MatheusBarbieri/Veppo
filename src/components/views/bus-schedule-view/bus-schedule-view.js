@@ -1,12 +1,14 @@
+import classnames from 'classnames'
 import Modal from 'react-responsive-modal'
-import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import Selector from 'react-select'
 
 import LoginForm from '../../login-form'
+import RoutesTable from '../../routes-table'
 import Section from '../../section'
 import SectionTitle from '../../section-title'
-import RoutesTable from '../../routes-table'
+import TicketSection from '../../ticket-section'
 import withCities from '../../../lib/with-cities.js'
 import withUser from '../../../lib/with-user.js'
 import './stylesheets/bus-schedule-view.scss'
@@ -88,7 +90,10 @@ class BusScheduleView extends Component {
 
   handleWeekDayChange = (selectedWeekDay) => this.setState({ selectedWeekDay })
 
-  handleRouteChange = (selectedRoute) => this.setState({ selectedRoute })
+  handleRouteChange = (selectedRoute) => {
+    this.setState({ selectedRoute })
+    this.setState({ shouldRenderBuySection: false })
+  }
 
   handleBuyClick = () => {
     const { user: { authenticated } } = this.props
@@ -122,6 +127,11 @@ class BusScheduleView extends Component {
       closeIcon: 'bus-schedule-view__modal__close-icon'
     }
 
+    const ticketSectionClasses = classnames(
+      'ticket-display',
+      { 'ticket-display--visible': shouldRenderBuySection }
+    )
+
     return (
       <div className='bus-schedule-view'>
         <Section>
@@ -147,6 +157,11 @@ class BusScheduleView extends Component {
             weekDay={selectedWeekDay && selectedWeekDay.day}
             onRouteChange={this.handleRouteChange}
             onBuyClick={this.handleBuyClick} />
+
+          <div className={ticketSectionClasses}>
+            <SectionTitle label='Comprar Passagens' />
+            <TicketSection route={selectedRoute} weekDay={selectedWeekDay && selectedWeekDay.day} />
+          </div>
         </Section>
 
         <Modal
@@ -157,9 +172,6 @@ class BusScheduleView extends Component {
           <LoginForm onLogin={this.handleLogin} />
         </Modal>
 
-        {shouldRenderBuySection
-          ? <p>{selectedRoute.id}</p>
-          : null}
       </div>
     )
   }

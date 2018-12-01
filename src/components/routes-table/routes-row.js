@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import uid from 'uniqid'
 
+import { humanizeTable } from '../../lib/moment.js'
 import RoutesCell from './routes-cell'
 import Weekdays from '../weekdays'
 
@@ -34,33 +35,6 @@ const RoutesRow = ({
     }
   )
 
-  const humanize = (timeMin) => {
-    const minutes = timeMin % 60
-    const hours = (timeMin - minutes) / 60
-
-    const hoursLabel = () => {
-      if (hours === 0) return ''
-      return hours + (hours === 1 ? ' hora' : ' horas')
-    }
-
-    const minsLabel = () => {
-      if (minutes === 0) return ''
-      return minutes + (minutes === 1 ? ' minuto' : ' minutos')
-    }
-
-    const andLabel = () => (
-      minutes && hours ? (<>{' e '} <br /></>) : ''
-    )
-
-    return (
-      <>
-        {hoursLabel()}
-        {andLabel()}
-        {minsLabel()}
-      </>
-    )
-  }
-
   const renderItem = (item) => {
     switch (item) {
       case 'weekDays':
@@ -72,7 +46,7 @@ const RoutesRow = ({
       case 'travelDistance':
         return `${route[item]}Km`
       case 'travelTime':
-        return humanize(route[item])
+        return humanizeTable(route[item])
       default:
         return route[item]
     }
