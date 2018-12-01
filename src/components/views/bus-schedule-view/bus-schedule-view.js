@@ -7,7 +7,8 @@ import LoginForm from '../../login-form'
 import Section from '../../section'
 import SectionTitle from '../../section-title'
 import RoutesTable from '../../routes-table'
-import withCities from '../../../lib/withCities.js'
+import withCities from '../../../lib/with-cities.js'
+import withUser from '../../../lib/with-user.js'
 import './stylesheets/bus-schedule-view.scss'
 
 const weekDays = [
@@ -55,7 +56,12 @@ const weekDays = [
 
 class BusScheduleView extends Component {
   static propTypes = {
-    cities: PropTypes.array
+    cities: PropTypes.array,
+    user: PropTypes.shape({
+      userLogin: PropTypes.string,
+      authenticated: PropTypes.bool
+    }).isRequired,
+    setUserLogin: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -66,14 +72,15 @@ class BusScheduleView extends Component {
     selectedCity: null,
     selectedWeekDay: null,
     selectedRoute: null,
+    shouldRenderBuySection: false,
     loginOpen: false
   }
 
-  onOpenModal = () => {
+  onOpenLoginModal = () => {
     this.setState({ loginOpen: true })
   }
 
-  onCloseModal = () => {
+  onCloseLoginModal = () => {
     this.setState({ loginOpen: false })
   }
 
@@ -84,7 +91,19 @@ class BusScheduleView extends Component {
   handleRouteChange = (selectedRoute) => this.setState({ selectedRoute })
 
   handleBuyClick = () => {
-    this.onOpenModal()
+    const { user: { authenticated } } = this.props
+    if (!authenticated) {
+      this.onOpenLoginModal()
+    } else {
+      this.setState({ shouldRenderBuySection: true })
+    }
+  }
+
+  handleLogin = (name) => {
+    const { setUserLogin } = this.props
+    setUserLogin(name)
+    this.setState({ shouldRenderBuySection: true })
+    this.setState({ loginOpen: false })
   }
 
   render() {
@@ -94,7 +113,8 @@ class BusScheduleView extends Component {
       selectedCity,
       selectedWeekDay,
       loginOpen,
-      selectedRoute
+      selectedRoute,
+      shouldRenderBuySection
     } = this.state
 
     const modalClassNames = {
@@ -129,12 +149,20 @@ class BusScheduleView extends Component {
             onBuyClick={this.handleBuyClick} />
         </Section>
 
-        <Modal classNames={modalClassNames} open={loginOpen} onClose={this.onCloseModal} center>
-          <LoginForm onLogin={() => {}} />
+        <Modal
+          classNames={modalClassNames}
+          open={loginOpen}
+          onClose={this.onCloseLoginModal}
+          center>
+          <LoginForm onLogin={this.handleLogin} />
         </Modal>
+
+        {shouldRenderBuySection
+          ? <p>{selectedRoute.id}</p>
+          : null}
       </div>
     )
   }
 }
 
-export default withCities(BusScheduleView)
+export default withUser(withCities(BusScheduleView))

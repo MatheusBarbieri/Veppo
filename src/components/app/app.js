@@ -8,7 +8,7 @@ import {
 import { ParallaxProvider } from 'react-scroll-parallax'
 
 import { Provider } from 'react-redux'
-import store from '../redux/store.js'
+import store from '../../redux/store.js'
 
 import Header from '../header'
 import { HomeView, BusScheduleView, ServicesView } from '../views'
