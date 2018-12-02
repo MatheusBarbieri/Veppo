@@ -137,20 +137,26 @@ class BusScheduleView extends Component {
         <Section>
           <SectionTitle label='Horários de Ônibus' />
           <div className='options-row'>
-            <Selector
-              className='city-selector'
-              classNamePrefix='city-selector'
-              value={selectedCity}
-              onChange={this.handleCityChange}
-              options={cities}
-              placeholder='Cidade Destino' />
-            <Selector
-              className='week-day-selector'
-              classNamePrefix='week-day-selector'
-              value={selectedWeekDay}
-              onChange={this.handleWeekDayChange}
-              options={weekDays}
-              placeholder='Dia da semana' />
+            <div className='options-row__option'>
+              <span className='options-row__label'>Cidade destino: </span>
+              <Selector
+                className='city-selector'
+                classNamePrefix='city-selector'
+                value={selectedCity}
+                onChange={this.handleCityChange}
+                options={cities}
+                placeholder='Cidade Destino' />
+            </div>
+            <div className='options-row__option'>
+              <span className='options-row__label'>Dia da semana: </span>
+              <Selector
+                className='week-day-selector'
+                classNamePrefix='week-day-selector'
+                value={selectedWeekDay}
+                onChange={this.handleWeekDayChange}
+                options={weekDays}
+                placeholder='Dia da semana' />
+            </div>
           </div>
           <RoutesTable
             city={selectedCity && selectedCity.value}
