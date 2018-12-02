@@ -167,7 +167,7 @@ class BusScheduleView extends Component {
             onBuyClick={this.handleBuyClick} />
 
           <div className={ticketSectionClasses}>
-            <SectionTitle label='Comprar Passagens' />
+            <SectionTitle label='Detalhes da compra' />
             <TicketSection route={selectedRoute} weekDay={selectedWeekDay && selectedWeekDay.day} />
           </div>
         </Section>
