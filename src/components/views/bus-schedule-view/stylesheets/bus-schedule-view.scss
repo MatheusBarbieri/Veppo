@@ -35,6 +35,10 @@ div.city-selector {
 
   &__control {
     box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -45,6 +49,10 @@ div.week-day-selector{
 
   &__control {
     box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
