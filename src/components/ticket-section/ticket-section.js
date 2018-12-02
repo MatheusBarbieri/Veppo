@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Selector from 'react-select'
 
-import { getNextDays, humanizeDate } from '../../lib/moment.js'
+import { getNextDays, getWeekDayName, humanizeDate } from '../../lib/moment.js'
 import { formatName } from '../../lib/string.js'
 import './stylesheets/ticket-section.scss'
 
@@ -67,6 +67,11 @@ class TicketSection extends Component {
           <div>
             <span className='ticket-section__route__labels'>Horário: </span>
             <span className='ticket-section__route__values'>{`${route.partTime}`}</span>
+          </div>
+
+          <div>
+            <span className='ticket-section__route__labels'>Dia da semana: </span>
+            <span className='ticket-section__route__values'>{`${getWeekDayName(weekDay)}`}</span>
           </div>
 
           <div>
