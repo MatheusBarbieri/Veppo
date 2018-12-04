@@ -140,7 +140,7 @@ class BusScheduleView extends Component {
             <div className='options-row__option'>
               <span className='options-row__label'>Cidade destino: </span>
               <Selector
-                aria-labelledby='Cidade destino'
+                aria-label='Selecionar cidade destino, para abrir o menu, aperte para baixo'
                 className='city-selector'
                 classNamePrefix='city-selector'
                 value={selectedCity}
@@ -151,7 +151,7 @@ class BusScheduleView extends Component {
             <div className='options-row__option'>
               <span className='options-row__label'>Dia da semana: </span>
               <Selector
-                aria-labelledby='Dia da semana'
+                aria-label='Selecionar dia da semana, para abrir o menu, aperte para baixo'
                 className='week-day-selector'
                 classNamePrefix='week-day-selector'
                 value={selectedWeekDay}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import uid from 'uniqid'
 
-import { humanizeTable } from '../../lib/moment.js'
+import { humanizeTable, getWeekDaysAsString } from '../../lib/moment.js'
 import RoutesCell from './routes-cell'
 import Weekdays from '../weekdays'
 
@@ -60,8 +60,18 @@ const RoutesRow = ({
     </td>
   ))
 
+  const acessibleLabel = `Rota ${route.mode} ${route.route} pela empresa ${route.company}
+  com partida às ${route.partTime}.
+  Frequência: ${getWeekDaysAsString(route.weekDays)}.
+  Preço em reais sem seguro: ${route.price}, preço em reais com seguro: ${route.priceWithInsurance}.
+  Distancia de: ${route.travelDistance}
+  com tempo de viagem estimado: ${route.travelTime}.
+  Aperte enter para selecionar.
+  `
+
   return (
     <tr
+      aria-label={acessibleLabel}
       tabIndex='0'
       className={classes}
       onClick={(event) => handleClick(event, route)}

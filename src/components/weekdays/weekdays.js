@@ -1,33 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './stylesheets/weekdays.scss'
+import { getWeekDayName, getAbreviatedWeekDay } from '../../lib/moment.js'
 
-const mapDays = (day) => {
-  switch (day) {
-    case 1:
-      return 'Dom'
-    case 2:
-      return 'Seg'
-    case 3:
-      return 'Ter'
-    case 4:
-      return 'Qua'
-    case 5:
-      return 'Qui'
-    case 6:
-      return 'Sex'
-    case 7:
-      return 'Sáb'
-    default:
-      return ''
-  }
-}
+import './stylesheets/weekdays.scss'
 
 const TablePaginator = ({ weekdays }) => (
   weekdays.map((day) => (
-    <div className='weekday-box'>
-      {mapDays(day)}
+    <div
+      aria-label={getWeekDayName(day)}
+      className='weekday-box'>
+      {getAbreviatedWeekDay(day)}
     </div>
   ))
 )

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import './stylesheets/routes-cell.scss'
 
 const RoutesCell = ({ children, className }) => (
-  <div className={`routes-cell ${className}`}>
+  <div tabIndex='-1' className={`routes-cell ${className}`}>
     {children}
   </div>
 )

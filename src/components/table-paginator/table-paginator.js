@@ -29,7 +29,7 @@ const TablePaginator = (
   }
 
   const handleSpacebarNavigate = (event, to) => {
-    if (event.charCode === 32 || event.keyCode === 32) {
+    if (event.charCode === 32 || event.keyCode === 32 || event.charCode === 13 || event.keyCode === 13) {
       event.preventDefault()
       handleEvent(to)
     }

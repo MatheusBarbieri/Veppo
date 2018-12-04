@@ -9,7 +9,7 @@
   align-items: center;
   padding: 5px;
   width: auto;
-  font-size: 1.3vw;
+  font-size: 16px;
 
   &__route {
     word-break: keep-all;
@@ -17,6 +17,6 @@
 
   &__weekDays {
     justify-content: left;
-    width: 10vw;
+    width: 120px;
   }
 }

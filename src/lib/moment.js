@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment'
 
+import _flatten from 'lodash/flatten'
+
 export const getNextDays = (weekDay, numberDays = 10) => {
   const today = moment().isoWeekday()
   const startingDay = today <= weekDay - 1 ? weekDay : weekDay + 7
@@ -107,6 +109,32 @@ export const getWeekDayName = (weekday) => {
       return 'Sexta-feira'
     case 6:
       return 'Sábado'
+    default:
+      return ''
+  }
+}
+
+export const getWeekDaysAsString = (weekDays) => {
+  const days = _flatten(weekDays.map((weekday) => getWeekDayName(weekday - 1)))
+  return days
+}
+
+export const getAbreviatedWeekDay = (day) => {
+  switch (day) {
+    case 1:
+      return 'Dom'
+    case 2:
+      return 'Seg'
+    case 3:
+      return 'Ter'
+    case 4:
+      return 'Qua'
+    case 5:
+      return 'Qui'
+    case 6:
+      return 'Sex'
+    case 7:
+      return 'Sáb'
     default:
       return ''
   }

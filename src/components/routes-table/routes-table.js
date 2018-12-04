@@ -50,7 +50,7 @@ class RoutesTable extends React.Component {
 
   handleSpacebar = (event, route) => {
     const { onRouteChange, weekDay } = this.props
-    if (event.charCode === 32 || event.keyCode === 32) {
+    if (event.charCode === 32 || event.keyCode === 32 || event.charCode === 13 || event.keyCode === 13) {
       event.preventDefault()
       if (weekDay) {
         this.setState({ selected: route })
@@ -66,7 +66,7 @@ class RoutesTable extends React.Component {
 
   handleSpacebarBuyButton = (event) => {
     const { onBuyClick } = this.props
-    if (event.charCode === 32 || event.keyCode === 32) {
+    if (event.charCode === 32 || event.keyCode === 32 || event.charCode === 13 || event.keyCode === 13) {
       event.preventDefault()
       onBuyClick()
     }
